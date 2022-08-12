@@ -1,26 +1,42 @@
+
 :root {
-  --fs-xl: clamp(2rem, 4vw + .5rem, 5rem);
-  --fs-l: clamp(1.6rem, 2.5vw + .2rem, 2.5rem);
+  --fs-xl: clamp(2.5rem, 4vw + 1rem, 3.5rem);
+  --fs-l: clamp(2rem, 4vw + 1rem, 3rem);
+  --fs-m: clamp(1.313rem, 1vw + 1rem, 1.5rem);
+  --fs-s: clamp(1.125rem, 1vw + 0.75rem, 1.25rem);
   --fs-600: 1.5rem;
-  --fs-500: 1.25rem;
-  --gs-600: 1rem;
+  --fs-500: 1.1rem;
   --fw-bold: 600;
+  --ff-ttss: "TT Commons", sans-serif;
 }
 
-body {
-  font-family: "TTCommons-Light";
+html {
+  scroll-behavior: smooth !important;
+}
+
+p {
+  line-height: 1.5rem;
 }
 
 li {
-  list-style: circle !important;
+  list-style: square !important;
+  line-height: 1.3rem;
+  margin-left: 1rem;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:visited {
   color: inherit;
+}
+
+.pb-anchor {
+  display: block;
+  position: relative;
+  top: -13vh;
+  visibility: hidden;
 }
 
 .pb-text-link a {
@@ -29,26 +45,30 @@ a:visited {
   -webkit-text-decoration-color: #003A5D !important;
           text-decoration-color: #003A5D !important;
   text-underline-offset: 0.15em;
+  color: #003A5D;
 }
 
 .pb-text-link a:hover {
   -webkit-text-decoration-color: red !important;
           text-decoration-color: red !important;
+  background-color: #ff00000f;
 }
 
 .wrapper {
+  margin-top: -2rem;
   max-width: 891px;
   margin: auto;
 }
 
-.pb-section-title {
+.pb-hero-title {
+  position: relative;
   font-size: var(--fs-xl);
   font-weight: var(--fw-bold);
   color: white;
   background-color: #ff0000;
-  margin: 1rem 2rem -2rem 3rem;
-  padding-left: 1rem;
-  position: relative;
+  margin: 1rem 2rem -2rem 1rem;
+  max-width: calc(100% - 2rem);
+  padding: 0 0 .4rem 1rem;
 }
 
 .pb-hero-image {
@@ -58,6 +78,68 @@ a:visited {
   margin-bottom: 1rem;
 }
 
+.pb-contact-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 0 -1rem 1rem;
+}
+
+.pb-contact-icon img {
+  max-height: 1rem;
+}
+
+.pb-contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: 1rem;
+  margin: .5rem 0 1rem 0;
+  padding: .4rem .4rem 1rem 1.5rem;
+  background: rgba(255, 195, 195, 0.225);
+}
+
+.pb-contact .pb-contact-element {
+  display: inline-block;
+  margin-right: 1.5rem;
+  padding-top: .7rem;
+}
+
+.pb-contact .pb-contact-element-title {
+  font-weight: var(--fw-bold);
+  display: inline-block;
+  margin-right: 1.5rem;
+  padding-top: .7rem;
+}
+
+.pb-this-element {
+  padding: 1rem 0 0 1.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.pb-this-button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  color: white;
+  background-color: #003A5D;
+  padding: .25rem 1rem .25rem 1rem;
+  font-size: .65rem;
+  letter-spacing: 1.5px;
+  margin: .1rem;
+}
+
+.pb-this-button:hover {
+  background-color: red;
+}
+
 .pb-alert-red {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -65,15 +147,13 @@ a:visited {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 2rem auto;
   max-width: 600px;
   color: #fff;
   font-size: var(--fs-500);
   font-weight: 600;
   background-color: #FA3D33;
   padding: .5rem;
-  margin-bottom: 2rem;
   text-decoration: none;
   text-align: center;
   -webkit-transition-duration: 900ms;
@@ -91,14 +171,84 @@ a:visited {
   font-weight: 600;
 }
 
-.pb-section-title-second {
-  font-size: var(--fs-500);
+.pb-1x2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(255px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+  row-gap: 1rem;
+}
+
+.pb-1-1 {
+  border: 1px solid gray;
+  padding: .8rem;
+}
+
+.pb-1-2 {
+  border: 1px solid gray;
+  padding: .8rem;
+}
+
+.pb-img-small {
+  display: block;
+  margin: 0 auto 0 auto;
+  max-width: 150px;
+}
+
+.pb-youtube {
+  text-align: center;
+  width: 100%;
+}
+
+.pb-youtube-video {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border: 2px solid red;
+}
+
+.pb-catalog-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(255px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+  border: 2px gray solid;
+  padding: 1rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.pb-catalog-wrapper .pb-catalog-inner {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+}
+
+.pb-catalog-icon {
+  padding-right: 1rem;
+}
+
+.pb-catalog-icon img {
+  margin-top: 1rem;
+  height: 2.1rem;
+}
+
+.pb-form-icon {
+  padding-right: .4rem;
+  position: relative;
+}
+
+.pb-form-icon img {
+  margin-bottom: -.4rem;
+  max-width: 20px;
 }
 
 .pb-section-wrapper {
   background: #ededed6d;
   padding: 1rem;
-  padding-bottom: 3rem;
 }
 
 .pb-section-frame {
@@ -106,23 +256,54 @@ a:visited {
   padding: 1rem;
 }
 
-.pb-main-text {
-  font-size: var(--fs-500);
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.pb-page-back {
+  display: -ms-grid;
+  display: grid;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: -.4rem 1rem .8rem auto;
+  padding: .25rem 1rem .25rem 1rem;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: normal;
+  color: #fff;
+  background-color: #303030;
 }
 
-.pb-section-black {
+.pb-page-back:hover {
+  background: #61B0BC;
+}
+
+.pb-main-text {
+  font-size: var(--fs-500);
+  padding: 1rem;
+}
+
+.pb-section-title {
   display: inline-block;
   font-size: var(--fs-l);
-  font-weight: 600;
-  padding: .5rem 4rem .5rem 2rem;
+  font-weight: var(--fw-bold);
+  padding: .2rem 3rem .2rem 1.5rem;
   margin: 3rem .5rem -2rem 1rem;
   background-color: #636565;
   color: #fff;
 }
 
-.pb-new-student-list {
+.pb-context-title-l {
+  font-family: "TT Commons", sans-serif;
+  font-size: var(--fs-m);
+  font-weight: var(--fw-bold);
+  padding-top: 1rem;
+}
+
+.pb-context-title-m {
+  font-size: var(--fs-s);
+  font-weight: var(--fw-bold);
+  padding-top: 1rem;
+}
+
+.pb-list {
   font-size: var(--fs-500);
   display: -ms-grid;
   display: grid;
@@ -138,21 +319,10 @@ a:visited {
   padding-top: 1rem;
 }
 
-.pb-new-student-list ul {
+.pb-list ul {
   margin-top: 0;
   padding: auto;
   margin: 2rem;
-}
-
-.pb-orientation-blue {
-  font-size: var(--fs-500);
-  font-weight: 600;
-  text-align: center;
-  color: white;
-  background: #61B0BC;
-  padding: .5rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
 }
 
 .pb-alert-turquoise {
@@ -162,16 +332,13 @@ a:visited {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin: -1rem auto 1rem auto;
   max-width: 600px;
   color: #fff;
   font-size: var(--fs-500);
   font-weight: 600;
   background-color: #61B0BC;
   padding: .5rem;
-  margin-bottom: 1rem;
-  margin-top: -1rem;
   text-decoration: none;
   text-align: center;
   -webkit-transition-duration: 800ms;
@@ -191,9 +358,8 @@ a:visited {
   font-weight: 600;
 }
 
-.pb-cstudents-resources {
+.pb-services {
   display: -ms-grid;
-  display: grid;
   display: grid;
   -ms-grid-columns: (minmax(255px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
@@ -201,11 +367,11 @@ a:visited {
   padding: 0rem 0 2rem 0rem;
 }
 
-.pb-cstudents-resources-column {
+.pb-services-column {
   font-size: var(--fs-500);
 }
 
-.pb-cstudents-image {
+.pb-services-image {
   display: -ms-grid;
   display: grid;
   -webkit-box-pack: center;
@@ -232,16 +398,12 @@ a:visited {
       -ms-flex-direction: row;
           flex-direction: row;
   gap: 1rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem 0 2rem 0;
 }
 
 .pb-quick-links-tile {
   font-weight: 600;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding: .5rem 2rem .5rem 2rem;
   color: white;
   font-size: var(--fs-500);
   background: #003A5D;
@@ -263,10 +425,7 @@ a:visited {
 
 .pb-quick-links-tile-red {
   font-weight: 600;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding: .5rem 2rem .5rem 2rem;
   color: white;
   font-size: var(--fs-500);
   background: #ff0000;
@@ -292,4 +451,9 @@ a:visited {
   margin-left: -1rem;
   padding-bottom: .5rem;
 }
-/*# sourceMappingURL=main.css.map */
+
+@media only screen and (max-width: 787px) {
+  .pb-anchor {
+    top: -1vh;
+  }
+}
